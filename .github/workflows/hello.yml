@@ -1,0 +1,15 @@
+name: Hello World Workflow
+
+# Run this workflow on every push to the repository
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest   # The machine where it will run
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print Hello World
+        run: echo "Hello, World! 🚀 This is my first GitHub Action!"
