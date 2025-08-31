@@ -1,15 +1,17 @@
-name: Hello World Workflow
-
-# Run this workflow on every push to the repository
+name: Python Tests
 on: [push]
 
 jobs:
-  say-hello:
-    runs-on: ubuntu-latest   # The machine where it will run
-
+  test:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Print Hello World
-        run: echo "Hello, World! 🚀 This is my first GitHub Action!"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run unit tests
+        run: python -m unittest -v
